@@ -40,23 +40,17 @@ export function SponsorsCarousel() {
         ))}
       </div>
 
-      <style jsx>{`
-        @keyframes scrollSponsors {
-          0% {
-            transform: translateX(0);
-          }
-          100% {
-            transform: translateX(-50%);
-          }
-        }
-
-        .animate-scrollSponsors {
-          display: flex;
-          gap: 0.5rem;
-          width: max-content;
-          animation: scrollSponsors 30s linear infinite;
-        }
-      `}</style>
+      <style>{`
+  @keyframes scrollSponsors {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  .animate-scrollSponsors {
+    display: flex;
+    gap: 2rem;
+    animation: scrollSponsors 30s linear infinite;
+  }
+`}</style>
     </div>
   );
 }

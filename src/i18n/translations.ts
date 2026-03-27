@@ -85,7 +85,7 @@ export const translations: Record<Language, Translations> = {
     },
     hero: {
       badge: "Интернациональный форум · 23 апреля 2026",
-      title: "Digital Atyrau 2026:\nSynergy of Industry and Talent",
+      title: "Digital Atyrau 2026:\nFrom Education to Career in Oil & Gas",
       subtitle:
         "Платформа для развития цифровой экосистемы Атырауской области. Объединяем бизнес, технологии и образование.",
       date: "23 апреля 2026",
@@ -213,7 +213,7 @@ export const translations: Record<Language, Translations> = {
     },
     hero: {
       badge: "Regional Forum · April 23, 2026",
-      title: "Digital Atyrau 2026:\nSynergy of Industry and Talent",
+      title: "Digital Atyrau 2026:\nFrom Education to Career in Oil & Gas",
       subtitle:
         "A platform for developing the digital ecosystem of the Atyrau region. Connecting business, technology, and education.",
       date: "April 23, 2026",
@@ -342,7 +342,7 @@ export const translations: Record<Language, Translations> = {
     },
     hero: {
       badge: "Өңірлік форум · 2026 жылғы 23 сәуір",
-      title: "Digital Atyrau 2026:\nSynergy of Industry and Talent",
+      title: "Digital Atyrau 2026:\nFrom Education to Career in Oil & Gas",
       subtitle:
         "Атырау облысының цифрлық экожүйесін дамытуға арналған платформа. Бизнесті, технологияларды және білім беруді біріктіреміз.",
       date: "2026 жылғы 23 сәуір",
@@ -471,7 +471,7 @@ export const translations: Record<Language, Translations> = {
     },
     hero: {
       badge: "地区论坛 · 2026年4月23日",
-      title: "Digital Atyrau 2026:\nSynergy of Industry and Talent",
+      title: "Digital Atyrau 2026:\nFrom Education to Career in Oil & Gas",
       subtitle:
         "旨在发展阿特劳地区数字生态系统的平台。连接商业、技术与教育。",
       date: "2026年4月23日",
