@@ -21,7 +21,7 @@ export const sponsors: Sponsor[] = [
     initials: "HB",
     color: "#006B3F",
     website: "https://halykbank.kz",
-    logo: "../../public/logos/halyk.svg",
+    logo: "../../public/halyk.svg",
   },
   {
     id: "akimat-atyrau",
@@ -29,7 +29,7 @@ export const sponsors: Sponsor[] = [
     initials: "АА",
     color: "#003580",
     website: "https://atyrau.gov.kz",
-    logo: "../../public/logos/atyrauakimat.svg",
+    logo: "../../public/atyrauakimat.svg",
   },
   {
     id: "astana-hub",
@@ -37,7 +37,7 @@ export const sponsors: Sponsor[] = [
     initials: "AH",
     color: "#1A1A2E",
     website: "https://astanahub.com",
-    logo: "../../public/logos/astana-hub.svg",
+    logo: "../../public/astana-hub.svg",
   },
   {
     id: "aoug",
@@ -45,7 +45,7 @@ export const sponsors: Sponsor[] = [
     initials: "УН",
     color: "#8B1A1A",
     website: "https://aung.edu.kz",
-    logo: "../../public/logos/aogu.png",
+    logo: "../../public/aogu.png",
   },
   {
     id: "ai-hub",
@@ -53,7 +53,7 @@ export const sponsors: Sponsor[] = [
     initials: "AI",
     color: "#0EA5E9",
     website: "https://aihub.kz",
-    logo: "../../public/logos/AIhub logo_monoWT.svg",
+    logo: "../../public/AIhub logo_monoWT.svg",
   },
   {
     id: "digital-ministry",
@@ -61,7 +61,7 @@ export const sponsors: Sponsor[] = [
     initials: "DM",
     color: "#7C3AED",
     website: "https://mdai.gov.kz",
-    logo: "../../public/logos/ministry.png",
+    logo: "../../public/ministry.png",
   },
   {
     id: "kmg-kumkol",
@@ -69,7 +69,7 @@ export const sponsors: Sponsor[] = [
     initials: "KK",
     color: "#B45309",
     website: "https://kmg.kz",
-    logo: "../../public/logos/kmgkumkol.svg",
+    logo: "../../public/kmgkumkol.svg",
   },
   {
     id: "norsec",
@@ -77,6 +77,6 @@ export const sponsors: Sponsor[] = [
     initials: "ND",
     color: "#0F766E",
     website: "https://norsec.kz",
-    logo: "../../public/logos/norsec.png",
+    logo: "../../public/norsec.png",
   },
 ];
