@@ -52,7 +52,7 @@ export function Header({ onRegisterAttendee, onRegisterSpeaker }: HeaderProps) {
           <a href="#" className="flex items-center shrink-0 group hover:opacity-80 transition-opacity">
 
             <img
-              src="../../public/logos/atyrau.svg"
+              src="/atyrau.svg"
               alt="Digital Atyrau Logo"
               className="h-12 md:h-20 w-auto object-contain scale-110 md:scale-125 origin-left"
             />

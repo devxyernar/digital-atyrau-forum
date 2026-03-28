@@ -66,7 +66,7 @@ export function App() {
             {/* Логотип в футере */}
             <div className="flex items-center">
               <img
-                src="../public/logos/atyrau.svg"
+                src="/public/atyrau.svg"
                 alt="Digital Atyrau Logo"
                 /* h-10 для мобилок, sm:h-12 для ПК. opacity-70 делает его слегка приглушенным для футера */
                 className="h-10 sm:h-12 w-auto object-contain opacity-70 hover:opacity-100 transition-opacity duration-300"
