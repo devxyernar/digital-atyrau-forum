@@ -1,3 +1,12 @@
+export interface Sponsor {
+  id: string;
+  name: string;
+  logo?: string;
+  initials: string;
+  color: string;
+  website?: string;
+}
+
 export const sponsors: Sponsor[] = [
   {
     id: "halyk-bank",
