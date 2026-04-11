@@ -25,14 +25,6 @@ export const sponsors: Sponsor[] = [
     logo: "/atyrauakimat.svg",
   },
   {
-    id: "astana-hub",
-    name: "Astana Hub",
-    initials: "AH",
-    color: "#1A1A2E",
-    website: "https://astanahub.com",
-    logo: "/astana-hub.svg",
-  },
-  {
     id: "aoug",
     name: "АУНГ",
     initials: "УН",

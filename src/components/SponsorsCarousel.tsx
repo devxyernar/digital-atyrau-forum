@@ -7,17 +7,17 @@ function SponsorItem({ sponsor }: { sponsor: typeof sponsors[number] }) {
       href={sponsor.website}
       target="_blank"
       rel="noopener noreferrer"
-      className="flex items-center justify-center w-32 h-24 flex-shrink-0"
+      className="flex items-center justify-center w-44 h-28 flex-shrink-0"
     >
       {sponsor.logo ? (
         <img
           src={sponsor.logo}
           alt={sponsor.name}
-          className="h-20 object-contain"
+          className="h-24 w-36 object-contain"
         />
       ) : (
         <div
-          className="flex items-center justify-center w-20 h-20 rounded-lg text-white font-bold text-lg"
+          className="flex items-center justify-center w-24 h-24 rounded-lg text-white font-bold text-xl"
           style={{ backgroundColor: sponsor.color }}
         >
           {sponsor.initials}
@@ -47,8 +47,8 @@ export function SponsorsCarousel() {
   }
   .animate-scrollSponsors {
     display: flex;
-    gap: 2rem;
-    animation: scrollSponsors 30s linear infinite;
+    gap: 0.75rem;
+    animation: scrollSponsors 28s linear infinite;
   }
 `}</style>
     </div>

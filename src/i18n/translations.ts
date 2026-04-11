@@ -84,11 +84,11 @@ export const translations: Record<Language, Translations> = {
       register: "Регистрация",
     },
     hero: {
-      badge: "Интернациональный форум · 23 апреля 2026",
+      badge: "Интернациональный форум · 28 апреля 2026",
       title: "Digital Atyrau 2026:\nFrom Education to Career in Oil & Gas",
       subtitle:
         "Платформа для развития цифровой экосистемы Атырауской области. Объединяем бизнес, технологии и образование.",
-      date: "23 апреля 2026",
+      date: "28 апреля 2026",
       location: "АУНГ им. Сафи Утебаева, г. Атырау",
       ctaAttendee: "Стать слушателем",
       ctaSpeaker: "Стать спикером",
@@ -194,7 +194,7 @@ export const translations: Record<Language, Translations> = {
     },
     modal: {
       attendeeTitle: "Регистрация прошла успешно!",
-      attendeeText: "Ждём вас на форуме 23 апреля в Атырау",
+      attendeeText: "Ждём вас на форуме 28 апреля в Атырау",
       speakerTitle: "Заявка принята!",
       speakerText: "Организаторы свяжутся с вами в ближайшее время",
       close: "Закрыть",
@@ -212,11 +212,11 @@ export const translations: Record<Language, Translations> = {
       register: "Register",
     },
     hero: {
-      badge: "Regional Forum · April 23, 2026",
+      badge: "Regional Forum · April 28, 2026",
       title: "Digital Atyrau 2026:\nFrom Education to Career in Oil & Gas",
       subtitle:
         "A platform for developing the digital ecosystem of the Atyrau region. Connecting business, technology, and education.",
-      date: "April 23, 2026",
+      date: "April 28, 2026",
       location: "AOUG named after Safi Utebayev, Atyrau",
       ctaAttendee: "Become an Attendee",
       ctaSpeaker: "Become a Speaker",
@@ -323,7 +323,7 @@ export const translations: Record<Language, Translations> = {
     },
     modal: {
       attendeeTitle: "Registration Successful!",
-      attendeeText: "We look forward to seeing you on April 23 in Atyrau",
+      attendeeText: "We look forward to seeing you on April 28 in Atyrau",
       speakerTitle: "Application Received!",
       speakerText: "Organizers will contact you shortly",
       close: "Close",
@@ -341,11 +341,11 @@ export const translations: Record<Language, Translations> = {
       register: "Тіркелу",
     },
     hero: {
-      badge: "Өңірлік форум · 2026 жылғы 23 сәуір",
+      badge: "Өңірлік форум · 2026 жылғы 28 сәуір",
       title: "Digital Atyrau 2026:\nFrom Education to Career in Oil & Gas",
       subtitle:
         "Атырау облысының цифрлық экожүйесін дамытуға арналған платформа. Бизнесті, технологияларды және білім беруді біріктіреміз.",
-      date: "2026 жылғы 23 сәуір",
+      date: "2026 жылғы 28 сәуір",
       location: "Сафи Өтебаев атындағы АММУ, Атырау қ.",
       ctaAttendee: "Тыңдаушы болу",
       ctaSpeaker: "Спикер болу",
@@ -452,7 +452,7 @@ export const translations: Record<Language, Translations> = {
     },
     modal: {
       attendeeTitle: "Тіркеу сәтті өтті!",
-      attendeeText: "Сізді 23 сәуірде Атырауда күтеміз",
+      attendeeText: "Сізді 28 сәуірде Атырауда күтеміз",
       speakerTitle: "Өтінім қабылданды!",
       speakerText: "Ұйымдастырушылар жақын арада сізбен байланысады",
       close: "Жабу",
@@ -470,11 +470,11 @@ export const translations: Record<Language, Translations> = {
       register: "注册",
     },
     hero: {
-      badge: "地区论坛 · 2026年4月23日",
+      badge: "地区论坛 · 2026年4月28日",
       title: "Digital Atyrau 2026:\nFrom Education to Career in Oil & Gas",
       subtitle:
         "旨在发展阿特劳地区数字生态系统的平台。连接商业、技术与教育。",
-      date: "2026年4月23日",
+      date: "2026年4月28日",
       location: "萨菲·乌特巴耶夫命名AOUG，阿特劳",
       ctaAttendee: "成为听众",
       ctaSpeaker: "成为演讲者",
@@ -581,7 +581,7 @@ export const translations: Record<Language, Translations> = {
     },
     modal: {
       attendeeTitle: "注册成功！",
-      attendeeText: "我们期待您于4月23日在阿特劳参加论坛",
+      attendeeText: "我们期待您于4月28日在阿特劳参加论坛",
       speakerTitle: "申请已接收！",
       speakerText: "组织者将尽快与您联系",
       close: "关闭",
