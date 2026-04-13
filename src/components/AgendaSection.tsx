@@ -28,7 +28,7 @@ export function AgendaSection() {
           className="mb-16"
         >
           <p className="text-cyan-400 text-xs font-semibold tracking-widest uppercase mb-3">
-            23 апр. 2026 · 09:00 – 17:30
+            28 апр. 2026 · 09:00 – 17:30
           </p>
           <h2
             className="text-4xl sm:text-5xl font-black text-white mb-4"
