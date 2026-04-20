@@ -1,6 +1,7 @@
 // src/components/HeroSection.tsx
-import { motion } from "framer-motion";
-import { Calendar, MapPin, ArrowRight, Phone } from "lucide-react";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Calendar, MapPin, ArrowRight, Phone, Loader2, CheckCircle } from "lucide-react";
 import { useLanguage } from "../hooks/useLanguage";
 import { useNavigate } from "react-router-dom";
 
@@ -15,9 +16,37 @@ const stats = [
   { value: "50+",  key: "statsCompanies" as const },
 ];
 
+type ButtonState = "idle" | "loading" | "done";
+
 export function HeroSection({ onRegisterAttendee, onRegisterSpeaker }: HeroSectionProps) {
   const { t } = useLanguage();
   const navigate = useNavigate();
+  const [attendeeState, setAttendeeState] = useState<ButtonState>("idle");
+  const [speakerState, setSpeakerState] = useState<ButtonState>("idle");
+
+  const handleAttendee = () => {
+    if (attendeeState !== "idle") return;
+    setAttendeeState("loading");
+    setTimeout(() => {
+      setAttendeeState("done");
+      setTimeout(() => {
+        setAttendeeState("idle");
+        onRegisterAttendee();
+      }, 400);
+    }, 900);
+  };
+
+  const handleSpeaker = () => {
+    if (speakerState !== "idle") return;
+    setSpeakerState("loading");
+    setTimeout(() => {
+      setSpeakerState("done");
+      setTimeout(() => {
+        setSpeakerState("idle");
+        onRegisterSpeaker();
+      }, 400);
+    }, 900);
+  };
 
   return (
     <section
@@ -104,20 +133,103 @@ export function HeroSection({ onRegisterAttendee, onRegisterSpeaker }: HeroSecti
             transition={{ duration: 0.6, delay: 0.4 }}
             className="flex flex-col sm:flex-row gap-4 mb-16"
           >
+            {/* Attendee button */}
             <button
-              onClick={onRegisterAttendee}
-              className="group relative flex items-center justify-center gap-2 bg-cyan-400 hover:bg-cyan-300 text-black font-bold text-base px-8 py-4 rounded-xl transition-all duration-200 overflow-hidden"
+              onClick={handleAttendee}
+              disabled={attendeeState !== "idle"}
+              className="group relative flex items-center justify-center gap-2 bg-cyan-400 hover:bg-cyan-300 disabled:opacity-80 text-black font-bold text-base px-8 py-4 rounded-xl transition-all duration-200 overflow-hidden min-w-[200px]"
             >
-              <span>{t.hero.ctaAttendee}</span>
-              <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+              <AnimatePresence mode="wait">
+                {attendeeState === "idle" && (
+                  <motion.span
+                    key="idle"
+                    className="flex items-center gap-2"
+                    initial={{ opacity: 0, y: 8 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -8 }}
+                    transition={{ duration: 0.15 }}
+                  >
+                    {t.hero.ctaAttendee}
+                    <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+                  </motion.span>
+                )}
+                {attendeeState === "loading" && (
+                  <motion.span
+                    key="loading"
+                    className="flex items-center gap-2"
+                    initial={{ opacity: 0, y: 8 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -8 }}
+                    transition={{ duration: 0.15 }}
+                  >
+                    <Loader2 size={16} className="animate-spin" />
+                    <span className="text-sm">Loading...</span>
+                  </motion.span>
+                )}
+                {attendeeState === "done" && (
+                  <motion.span
+                    key="done"
+                    className="flex items-center gap-2"
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.15 }}
+                  >
+                    <CheckCircle size={16} />
+                  </motion.span>
+                )}
+              </AnimatePresence>
             </button>
+
+            {/* Speaker button */}
             <button
-              onClick={onRegisterSpeaker}
-              className="group flex items-center justify-center gap-2 bg-transparent border-2 border-neutral-700 hover:border-cyan-500 text-white font-semibold text-base px-8 py-4 rounded-xl transition-all duration-200"
+              onClick={handleSpeaker}
+              disabled={speakerState !== "idle"}
+              className="group relative flex items-center justify-center gap-2 bg-transparent border-2 border-neutral-700 hover:border-cyan-500 disabled:opacity-80 text-white font-semibold text-base px-8 py-4 rounded-xl transition-all duration-200 min-w-[200px]"
             >
-              <span>{t.hero.ctaSpeaker}</span>
-              <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform text-cyan-400" />
+              <AnimatePresence mode="wait">
+                {speakerState === "idle" && (
+                  <motion.span
+                    key="idle"
+                    className="flex items-center gap-2"
+                    initial={{ opacity: 0, y: 8 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -8 }}
+                    transition={{ duration: 0.15 }}
+                  >
+                    {t.hero.ctaSpeaker}
+                    <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform text-cyan-400" />
+                  </motion.span>
+                )}
+                {speakerState === "loading" && (
+                  <motion.span
+                    key="loading"
+                    className="flex items-center gap-2 text-cyan-400"
+                    initial={{ opacity: 0, y: 8 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -8 }}
+                    transition={{ duration: 0.15 }}
+                  >
+                    <Loader2 size={16} className="animate-spin" />
+                    <span className="text-sm">Loading...</span>
+                  </motion.span>
+                )}
+                {speakerState === "done" && (
+                  <motion.span
+                    key="done"
+                    className="flex items-center gap-2 text-cyan-400"
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.15 }}
+                  >
+                    <CheckCircle size={16} />
+                  </motion.span>
+                )}
+              </AnimatePresence>
             </button>
+
+            {/* Contacts expanding button */}
             <button
               onClick={() => navigate('/contacts')}
               className="group flex items-center justify-center bg-neutral-900 border-2 border-neutral-700 hover:border-cyan-500 rounded-xl transition-all duration-300 overflow-hidden h-[56px] px-4"

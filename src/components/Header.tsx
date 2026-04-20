@@ -1,7 +1,8 @@
 // src/components/Header.tsx
 import { useState, useEffect } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
-import { Menu, X, Globe } from "lucide-react";
+import { Menu, X, Globe, Loader2, CheckCircle } from "lucide-react";
+import { AnimatePresence, motion } from "framer-motion";
 import { useLanguage } from "../hooks/useLanguage";
 import { SponsorsCarousel } from "./SponsorsCarousel";
 import type { Language } from "../i18n/translations";
@@ -27,6 +28,8 @@ export function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [langOpen, setLangOpen] = useState(false);
+  const [attendeeState, setAttendeeState] = useState<"idle" | "loading" | "done">("idle");
+  const [speakerState, setSpeakerState] = useState<"idle" | "loading" | "done">("idle");
 
   useEffect(() => {
     const handler = () => setScrolled(window.scrollY > 10);
@@ -35,11 +38,19 @@ export function Header() {
   }, []);
 
   // Scroll to register section on home page
-  const goToRegister = (_tab: "attendee" | "speaker") => {
-    navigate("/");
+  const goToRegister = (_tab: "attendee" | "speaker", setter: React.Dispatch<React.SetStateAction<"idle" | "loading" | "done">>) => {
+    if (setter === setAttendeeState && attendeeState !== "idle") return;
+    if (setter === setSpeakerState && speakerState !== "idle") return;
+    setter("loading");
+    setMenuOpen(false);
     setTimeout(() => {
-      document.getElementById("register")?.scrollIntoView({ behavior: "smooth" });
-    }, 100);
+      setter("done");
+      setTimeout(() => {
+        setter("idle");
+        navigate("/");
+        setTimeout(() => document.getElementById("register")?.scrollIntoView({ behavior: "smooth" }), 100);
+      }, 400);
+    }, 800);
   };
 
   const navLinkClass = ({ isActive }: { isActive: boolean }) =>
@@ -135,16 +146,50 @@ export function Header() {
             {/* Desktop CTA */}
             <div className="hidden sm:flex items-center gap-2">
               <button
-                onClick={() => goToRegister("attendee")}
-                className="text-xs text-neutral-300 border border-neutral-700 px-3 py-1.5 rounded-lg hover:border-neutral-500 transition-colors"
+                onClick={() => goToRegister("attendee", setAttendeeState)}
+                disabled={attendeeState !== "idle"}
+                className="relative text-xs text-neutral-300 border border-neutral-700 px-3 py-1.5 rounded-lg hover:border-neutral-500 transition-colors disabled:opacity-70 min-w-[110px] flex items-center justify-center gap-1.5"
               >
-                {t.hero.ctaAttendee}
+                <AnimatePresence mode="wait">
+                  {attendeeState === "idle" && (
+                    <motion.span key="idle" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.12 }}>
+                      {t.hero.ctaAttendee}
+                    </motion.span>
+                  )}
+                  {attendeeState === "loading" && (
+                    <motion.span key="loading" className="flex items-center gap-1" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.12 }}>
+                      <Loader2 size={12} className="animate-spin" />
+                    </motion.span>
+                  )}
+                  {attendeeState === "done" && (
+                    <motion.span key="done" className="flex items-center gap-1 text-cyan-400" initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.12 }}>
+                      <CheckCircle size={12} />
+                    </motion.span>
+                  )}
+                </AnimatePresence>
               </button>
               <button
-                onClick={() => goToRegister("speaker")}
-                className="text-xs text-black bg-cyan-400 px-3 py-1.5 rounded-lg hover:bg-cyan-300 transition-colors font-semibold"
+                onClick={() => goToRegister("speaker", setSpeakerState)}
+                disabled={speakerState !== "idle"}
+                className="relative text-xs text-black bg-cyan-400 px-3 py-1.5 rounded-lg hover:bg-cyan-300 transition-colors font-semibold disabled:opacity-70 min-w-[110px] flex items-center justify-center gap-1.5"
               >
-                {t.hero.ctaSpeaker}
+                <AnimatePresence mode="wait">
+                  {speakerState === "idle" && (
+                    <motion.span key="idle" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.12 }}>
+                      {t.hero.ctaSpeaker}
+                    </motion.span>
+                  )}
+                  {speakerState === "loading" && (
+                    <motion.span key="loading" className="flex items-center gap-1" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.12 }}>
+                      <Loader2 size={12} className="animate-spin" />
+                    </motion.span>
+                  )}
+                  {speakerState === "done" && (
+                    <motion.span key="done" className="flex items-center gap-1" initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.12 }}>
+                      <CheckCircle size={12} />
+                    </motion.span>
+                  )}
+                </AnimatePresence>
               </button>
             </div>
 
@@ -205,18 +250,54 @@ export function Header() {
               </NavLink>
             ))}
 
-            <div className="flex flex-col gap-2 pt-3 border-t border-neutral-800">
+            <div className="flex flex-col gap-3 pt-3 border-t border-neutral-800">
               <button
-                onClick={() => { goToRegister("attendee"); setMenuOpen(false); }}
-                className="text-sm text-neutral-300 border border-neutral-700 px-4 py-2 rounded-lg hover:border-neutral-500 transition-colors"
+                onClick={() => goToRegister("attendee", setAttendeeState)}
+                disabled={attendeeState !== "idle"}
+                className="text-sm text-neutral-300 border border-neutral-700 px-4 py-3 rounded-xl hover:border-neutral-500 transition-colors flex items-center justify-center gap-2 min-h-[48px] active:scale-95 transition-transform"
               >
-                {t.hero.ctaAttendee}
+                <AnimatePresence mode="wait">
+                  {attendeeState === "idle" && (
+                    <motion.span key="idle" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
+                      {t.hero.ctaAttendee}
+                    </motion.span>
+                  )}
+                  {attendeeState === "loading" && (
+                    <motion.span key="loading" className="flex items-center gap-2 text-cyan-400" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
+                      <Loader2 size={16} className="animate-spin" />
+                      <span>Loading...</span>
+                    </motion.span>
+                  )}
+                  {attendeeState === "done" && (
+                    <motion.span key="done" className="flex items-center gap-2 text-cyan-400" initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0 }}>
+                      <CheckCircle size={16} />
+                    </motion.span>
+                  )}
+                </AnimatePresence>
               </button>
               <button
-                onClick={() => { goToRegister("speaker"); setMenuOpen(false); }}
-                className="text-sm text-black bg-cyan-400 px-4 py-2 rounded-lg hover:bg-cyan-300 transition-colors font-semibold"
+                onClick={() => goToRegister("speaker", setSpeakerState)}
+                disabled={speakerState !== "idle"}
+                className="text-sm text-black bg-cyan-400 px-4 py-3 rounded-xl hover:bg-cyan-300 transition-colors font-semibold flex items-center justify-center gap-2 min-h-[48px] active:scale-95 transition-transform"
               >
-                {t.hero.ctaSpeaker}
+                <AnimatePresence mode="wait">
+                  {speakerState === "idle" && (
+                    <motion.span key="idle" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
+                      {t.hero.ctaSpeaker}
+                    </motion.span>
+                  )}
+                  {speakerState === "loading" && (
+                    <motion.span key="loading" className="flex items-center gap-2" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
+                      <Loader2 size={16} className="animate-spin" />
+                      <span>Loading...</span>
+                    </motion.span>
+                  )}
+                  {speakerState === "done" && (
+                    <motion.span key="done" className="flex items-center gap-2" initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0 }}>
+                      <CheckCircle size={16} />
+                    </motion.span>
+                  )}
+                </AnimatePresence>
               </button>
             </div>
           </div>

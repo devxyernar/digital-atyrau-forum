@@ -108,7 +108,7 @@ export function ContactsPage() {
               className="relative z-10 inline-flex items-center gap-3 bg-neutral-800 hover:bg-emerald-500 hover:text-black text-white font-semibold px-6 py-4 rounded-xl transition-all duration-300"
             >
               <Mail size={18} />
-              <span>Написать письмо</span>
+              <span>{t.contacts.emailButton}</span>
             </a>
           </motion.div>
         </div>

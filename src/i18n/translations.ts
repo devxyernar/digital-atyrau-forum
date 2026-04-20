@@ -164,6 +164,7 @@ export interface Translations {
     director: string;
     deputy: string;
     email: string;
+    emailButton: string;
   };
   footer: {
     rights: string;
@@ -445,7 +446,8 @@ export const translations: Record<Language, Translations> = {
       subtitle: "Свяжитесь с организаторами форума Digital Atyrau",
       director: "Руководитель AI-HUB",
       deputy: "Зам.руководитель AI-HUB",
-      email: "Почта"
+      email: "Почта",
+      emailButton: "Написать письмо"
     },
     footer: {
       rights: "Все права защищены",
@@ -727,7 +729,8 @@ export const translations: Record<Language, Translations> = {
       subtitle: "Contact the organizers of the Digital Atyrau forum",
       director: "AI-HUB Director",
       deputy: "AI-HUB Deputy Director",
-      email: "Email"
+      email: "Email",
+      emailButton: "Send an Email"
     },
     footer: {
       rights: "All rights reserved",
@@ -1009,7 +1012,8 @@ export const translations: Record<Language, Translations> = {
       subtitle: "Digital Atyrau форумының ұйымдастырушыларымен хабарласыңыз",
       director: "AI-HUB Басшысы",
       deputy: "AI-HUB Басшысының орынбасары",
-      email: "Пошта"
+      email: "Пошта",
+      emailButton: "Хат жазу"
     },
     footer: {
       rights: "Барлық құқықтар қорғалған",
@@ -1291,7 +1295,8 @@ export const translations: Record<Language, Translations> = {
       subtitle: "联系 Digital Atyrau 论坛的组织者",
       director: "AI-HUB 负责人",
       deputy: "AI-HUB 副负责人",
-      email: "电子邮件"
+      email: "电子邮件",
+      emailButton: "发送邮件"
     },
     footer: {
       rights: "版权所有",
