@@ -1,7 +1,8 @@
 // src/components/HeroSection.tsx
 import { motion } from "framer-motion";
-import { Calendar, MapPin, ArrowRight } from "lucide-react";
+import { Calendar, MapPin, ArrowRight, Phone } from "lucide-react";
 import { useLanguage } from "../hooks/useLanguage";
+import { useNavigate } from "react-router-dom";
 
 interface HeroSectionProps {
   onRegisterAttendee: () => void;
@@ -16,6 +17,7 @@ const stats = [
 
 export function HeroSection({ onRegisterAttendee, onRegisterSpeaker }: HeroSectionProps) {
   const { t } = useLanguage();
+  const navigate = useNavigate();
 
   return (
     <section
@@ -115,6 +117,18 @@ export function HeroSection({ onRegisterAttendee, onRegisterSpeaker }: HeroSecti
             >
               <span>{t.hero.ctaSpeaker}</span>
               <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform text-cyan-400" />
+            </button>
+            <button
+              onClick={() => navigate('/contacts')}
+              className="group flex items-center justify-center bg-neutral-900 border-2 border-neutral-700 hover:border-cyan-500 rounded-xl transition-all duration-300 overflow-hidden h-[56px] px-4"
+              title={t.hero.ctaContacts}
+            >
+              <Phone size={20} className="text-cyan-400 shrink-0" />
+              <div className="grid grid-rows-[1fr] grid-cols-[0fr] group-hover:grid-cols-[1fr] transition-[grid-template-columns] duration-300 ease-out">
+                <span className="overflow-hidden whitespace-nowrap text-white font-medium pl-0 group-hover:pl-3 transition-all duration-300">
+                  {t.hero.ctaContacts}
+                </span>
+              </div>
             </button>
           </motion.div>
 

@@ -27,27 +27,28 @@ function SponsorItem({ sponsor }: { sponsor: typeof sponsors[number] }) {
   );
 }
 
-/** Бесшовная автопрокрутка */
 export function SponsorsCarousel() {
-  // Дублируем массив, чтобы сделать бесшовный эффект
-  const track = [...sponsors, ...sponsors];
-
   return (
     <div className="overflow-hidden w-full bg-neutral-900 border-b border-neutral-800 py-6">
-      <div className="flex animate-scrollSponsors">
-        {track.map((s, idx) => (
-          <SponsorItem key={s.id + idx} sponsor={s} />
-        ))}
+      <div className="flex w-max">
+        <div className="flex flex-shrink-0 animate-scrollSponsors gap-6 pr-6">
+          {sponsors.map((s, idx) => (
+            <SponsorItem key={`s1-${s.id}-${idx}`} sponsor={s} />
+          ))}
+        </div>
+        <div className="flex flex-shrink-0 animate-scrollSponsors gap-6 pr-6">
+          {sponsors.map((s, idx) => (
+            <SponsorItem key={`s2-${s.id}-${idx}`} sponsor={s} />
+          ))}
+        </div>
       </div>
 
       <style>{`
   @keyframes scrollSponsors {
     0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
+    100% { transform: translateX(-100%); }
   }
   .animate-scrollSponsors {
-    display: flex;
-    gap: 0.75rem;
     animation: scrollSponsors 28s linear infinite;
   }
 `}</style>

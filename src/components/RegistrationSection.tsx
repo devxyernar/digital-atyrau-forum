@@ -6,6 +6,7 @@ import { z } from "zod";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLanguage } from "../hooks/useLanguage";
 import { submitToGoogleForm } from "../config/googleForms";
+import { AlertTriangle } from "lucide-react";
 
 // ---------- Zod schemas (built dynamically from translations) ----------
 function buildAttendeeSchema(v: ReturnType<typeof useLanguage>["t"]["registration"]["validation"]) {
@@ -44,7 +45,7 @@ function Field({ label, error, children }: FieldProps) {
       {children}
       {error && (
         <p className="text-red-400 text-xs mt-1 flex items-center gap-1">
-          <span>⚠</span> {error}
+          <AlertTriangle size={14} /> {error}
         </p>
       )}
     </div>
