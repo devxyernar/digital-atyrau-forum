@@ -1,6 +1,5 @@
 // src/components/CareerExpoSection.tsx
 import { motion } from "framer-motion";
-import { useNavigate } from "react-router-dom";
 import { useLanguage } from "../hooks/useLanguage";
 import {
   Briefcase, MapPin, Clock, Users, Star,
@@ -9,7 +8,7 @@ import {
 } from "lucide-react";
 
 export function CareerExpoSection() {
-  const navigate = useNavigate();
+
   const { t } = useLanguage();
   const c = t.careerExpo;
 
@@ -35,11 +34,6 @@ export function CareerExpoSection() {
     <Trophy size={32} className="text-yellow-400" />,
     <Globe size={32} className="text-sky-400" />
   ];
-
-  const goToRegister = () => {
-    navigate("/");
-    setTimeout(() => document.getElementById("register")?.scrollIntoView({ behavior: "smooth" }), 100);
-  };
 
   return (
     <section

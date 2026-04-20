@@ -35,7 +35,7 @@ export function Header() {
   }, []);
 
   // Scroll to register section on home page
-  const goToRegister = (tab: "attendee" | "speaker") => {
+  const goToRegister = (_tab: "attendee" | "speaker") => {
     navigate("/");
     setTimeout(() => {
       document.getElementById("register")?.scrollIntoView({ behavior: "smooth" });

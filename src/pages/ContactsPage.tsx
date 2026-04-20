@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Phone, Mail, User, MapPin } from "lucide-react";
+import { Phone, Mail, User } from "lucide-react";
 import { useLanguage } from "../hooks/useLanguage";
 
 export function ContactsPage() {
