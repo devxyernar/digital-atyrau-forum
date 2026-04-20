@@ -8,13 +8,13 @@ export function ContactsPage() {
   const contactsList = [
     {
       role: t.contacts.director,
-      name: "Абдигалиева Акмарал Нурасыловна",
+      name: t.contacts.directorName,
       phone: "+7 701 377 5454",
       phoneLink: "tel:+77013775454"
     },
     {
       role: t.contacts.deputy,
-      name: "Мырзакелді Толғанай Дәулеткелдіқызы",
+      name: t.contacts.deputyName,
       phone: "+7 778 895 3273",
       phoneLink: "tel:+77788953273"
     }

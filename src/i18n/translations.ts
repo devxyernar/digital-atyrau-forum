@@ -162,7 +162,9 @@ export interface Translations {
     title: string;
     subtitle: string;
     director: string;
+    directorName: string;
     deputy: string;
+    deputyName: string;
     email: string;
     emailButton: string;
   };
@@ -445,7 +447,9 @@ export const translations: Record<Language, Translations> = {
       title: "Контакты",
       subtitle: "Свяжитесь с организаторами форума Digital Atyrau",
       director: "Руководитель AI-HUB",
+      directorName: "Абдигалиева Акмарал Нурасыловна",
       deputy: "Зам.руководитель AI-HUB",
+      deputyName: "Мырзакелді Толғанай Дәулеткелдіқызы",
       email: "Почта",
       emailButton: "Написать письмо"
     },
@@ -728,7 +732,9 @@ export const translations: Record<Language, Translations> = {
       title: "Contacts",
       subtitle: "Contact the organizers of the Digital Atyrau forum",
       director: "AI-HUB Director",
+      directorName: "Abdigalieva Akmaral Nurasylovna",
       deputy: "AI-HUB Deputy Director",
+      deputyName: "Myrzakeldi Tolganai Daultekeldikyzy",
       email: "Email",
       emailButton: "Send an Email"
     },
@@ -1011,7 +1017,9 @@ export const translations: Record<Language, Translations> = {
       title: "Байланыс",
       subtitle: "Digital Atyrau форумының ұйымдастырушыларымен хабарласыңыз",
       director: "AI-HUB Басшысы",
+      directorName: "Абдиғалиева Ақмарал Нұрасылқызы",
       deputy: "AI-HUB Басшысының орынбасары",
+      deputyName: "Мырзакелді Толғанай Дәулеткелдіқызы",
       email: "Пошта",
       emailButton: "Хат жазу"
     },
@@ -1294,7 +1302,9 @@ export const translations: Record<Language, Translations> = {
       title: "联系方式",
       subtitle: "联系 Digital Atyrau 论坛的组织者",
       director: "AI-HUB 负责人",
+      directorName: "Abdigalieva Akmaral Nurasylovna",
       deputy: "AI-HUB 副负责人",
+      deputyName: "Myrzakeldi Tolganai Daultekeldikyzy",
       email: "电子邮件",
       emailButton: "发送邮件"
     },
